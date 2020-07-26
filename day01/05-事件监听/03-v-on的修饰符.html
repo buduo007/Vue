@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div @click="divClick">
+        aaaaa
+        <!-- 1 .stop是修饰符, 可以阻止事件冒泡 -->
+        <button @click.stop="btnClick">按钮</button>
+      </div>
+
+      <!-- 2  .prevent修饰符, 阻止默认行为 -->
+      <form action="baidu">
+        <input type="text" />
+        <!--   .prevent修饰符, 阻止默认行为 -->
+        <input type="submit" value="提交" @click.prevent="submitClick" />
+      </form>
+
+      <!-- 3.  监听某个键盘按键的点击 -->
+      <!-- .{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调 -->
+      <!-- .enter 只监听回车 -->
+      <input type="text" @keyup.enter="keyUp">
+      <br>
+
+      <!-- .oncex修饰符, 回调只触发一次 -->
+      <button @click.once='btnClick2'>once修饰符</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "你好",
+        },
+        methods: {
+          divClick() {
+            console.log("div");
+          },
+          btnClick() {
+            console.log("button");
+          },
+          submitClick() {
+            console.log("submitClick");
+          },
+          keyUp() {
+            console.log('keyUp')
+          },
+          btnClick2() {
+            console.log('btnClick2')
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

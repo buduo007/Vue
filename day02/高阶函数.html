@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 编程范式: 命令式编程/声明式编程
+      // 编程范式: 面向对象编程(第一公民: 对象) / 函数式编程(第一公民: 函数)
+
+      // 1. filter(callback)
+      const nums = [1, 4, 7, 3, 11, 100, 100, 7, 34, 8, 3, 55, 66, 33];
+      let result = nums.filter((item) => {
+        return item > 10;
+      });
+      console.log("filter():" + result);
+      console.log(Array.isArray(result));
+
+      console.log("===============================");
+
+      // 2. map(callback)
+      let result2 = result.map(function (item) {
+        return item * 2;
+      });
+      console.log("map()" + result2);
+      console.log(Array.isArray(result2));
+
+      console.log("=====================================");
+
+      // 3. array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+      /**
+       *  total	必需。初始值, 或者计算结束后的返回值。
+       *  currentValue	必需。当前元素
+       *  currentIndex	可选。当前元素的索引
+       *  arr	可选。当前元素所属的数组对象。
+       *  initialValue	可选。传递给函数的初始值
+       */
+      // reduce 是对数组中所有的内容进行汇总
+      // 对result2进行累加
+      let result3 = result2.reduce(function (preValue, item) {
+        return (preValue + item);
+      }, 0);
+      console.log(result3);
+    </script>
+  </body>
+</html>

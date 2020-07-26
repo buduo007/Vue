@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="item in letters">{{ item }}</li>
+      </ul>
+      <button @click="btnClick">按钮</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          letters: ["a", "b", "h", "g", "c", "d"],
+        },
+        methods: {
+          btnClick() {
+            // 1. push方法(是响应式)
+            // this.letters.push('aaa')
+
+            // 2. 注意: 通过索引值修改数组中的元素(不是响应式)
+            // this.letters[2] = "bbbb";
+
+            // 3. pop()   是响应式
+            // this.letters.pop();
+
+            // 4. shift()   是响应式
+            // this.letters.shift();
+
+            // 5. unshift()   是响应式
+            // this.letters.unshift("cccc");
+
+            // 6. splice()    是响应式
+            // this.letters.splice(0, 1, '哈哈');
+
+            // 7. sort()   是响应式
+            // this.letters.sort();
+
+            // 8. reverse()   是响应式
+            // this.letters.reverse();
+
+            // 9. Vue.set(要修改的对象, 索引值, 修改后的值)  是响应式
+            Vue.set(this.letters, 0, 'xxxx')
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

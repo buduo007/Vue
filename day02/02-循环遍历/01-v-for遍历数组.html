@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 在遍历的时候没有使用索引值(下标志) -->
+      <ul>
+        <li v-for="name in names">{{name}}</li>
+      </ul>
+
+      <hr />
+
+      <!-- 2. 在遍历的 时候, 获取索引值 -->
+      <ul>
+        <li v-for="(name, index) in names">{{name}} {{index+1}}</li>
+      </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          names: ["张三", "李素", "王五", "马六"],
+        },
+      });
+    </script>
+  </body>
+</html>

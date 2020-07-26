@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="isShow">
+        <label for="username"> 账户:</label>
+        <!-- key="username" 值相同代表复用, 不同代表不复用 -->
+        <input type="text" id="username" placeholder="请输入用户名" key="username"/>
+      </div>
+      <div v-else="isShow">
+        <label for="userEmail">邮箱: </label>
+        <input type="text" id="userEmail" placeholder="请输入邮箱" key="userEmail"/>
+      </div>
+
+      <!-- 方式一 -->
+      <button @click='change'>切换方式一</button>
+      <!-- 方式二 -->
+      <button @click='isShow = !isShow'>切换方式二</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "你好",
+          isShow: true,
+        },
+        methods: {
+          change() {
+            return this.isShow = !this.isShow
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- v-model绑定的单选元素, 可以不需要name属性 -->
+      <label> <input type="radio" value="男" v-model="gender" />男 </label>
+      <label> <input type="radio" value="女" v-model="gender" />女 </label>
+      <h2>{{ gender }}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "你好",
+          // 给定默认值
+          gender: "男",
+        },
+      });
+    </script>
+  </body>
+</html>
