@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn><span slot="center">修改后中间</span></cpn>
+
+      <cpn><i slot="left">修改后左边</i></cpn>
+
+      <cpn><button slot="right">修改后右边</button></cpn>
+    </div>
+
+    <template id="cpn">
+      <div>
+       <slot name='left'><span>左</span></slot>
+       <slot name='center'><span>中</span></slot>
+       <slot name='right'><span>右</span></slot>
+      </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "你好",
+        },
+        components: {
+          cpn: {
+            template: "#cpn",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
