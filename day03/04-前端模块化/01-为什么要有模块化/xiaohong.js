@@ -1,0 +1,7 @@
+(function () {
+  let name = "小红";
+
+  let flag = false;
+
+  document.write(name);
+})();
