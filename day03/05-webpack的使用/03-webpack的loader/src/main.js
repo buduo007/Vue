@@ -13,4 +13,4 @@ require("./css/normal.css");
 // 4. 依赖less文件
 require("./css/special.less");
 
-document.writeln('<h2>你好啊, 李银河!</h2>')
+document.writeln("<h2>你好啊, 李银河!</h2>");
