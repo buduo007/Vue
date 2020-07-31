@@ -48,6 +48,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.js$/,
+        // exclude排除
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015']
+          }
+        }
+      },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
+      }
     ],
   },
 };

@@ -562,19 +562,24 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
+
+
+var _info = __webpack_require__(3);
+
 // 1. 使用commonjs的模块化规范
-const { add, mul } = __webpack_require__(3);
+var _require = __webpack_require__(4),
+    add = _require.add,
+    mul = _require.mul;
+
 console.log(add(10, 20));
 console.log(add(10, 20));
 
 //2. 使用ES6的模块化规范
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */], __WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */], __WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* height */]);
+console.log(_info.name, _info.age, _info.height);
 
 // 3. 依赖csswen文件
 __webpack_require__(5);
@@ -582,12 +587,33 @@ __webpack_require__(5);
 // 4. 依赖less文件
 __webpack_require__(10);
 
-document.writeln('<h2>你好啊, 李银河!</h2>')
-
+document.writeln("<h2>你好啊, 李银河!</h2>");
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var name = '小明';
+var age = 22;
+var height = 1.85;
+
+// 导出
+exports.name = name;
+exports.age = age;
+exports.height = height;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 function add(num1, num2) {
   return num1 + num2;
@@ -598,25 +624,9 @@ function mul(num1, num2) {
 }
 
 module.exports = {
-  add,
-  mul,
+  add: add,
+  mul: mul
 };
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return name; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return age; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return height; });
-const name = '小明'
-const age = 22
-const height = 1.85
-
-// 导出
-
 
 /***/ }),
 /* 5 */
@@ -643,7 +653,7 @@ if(content.locals) module.exports = content.locals;
 
 if(false) {
 	module.hot.accept("!!../../node_modules/css-loader/dist/cjs.js!./normal.css", function() {
-		var newContent = require("!!../../node_modules/css-loader/dist/cjs.js!./normal.css");
+		var newContent = require("../../04-webpack配置vue/dist/node_modules/node_modules/css-loader/dist/cjs.js!./normal.css");
 
 		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 
@@ -834,7 +844,7 @@ if(content.locals) module.exports = content.locals;
 
 if(false) {
 	module.hot.accept("!!../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./special.less", function() {
-		var newContent = require("!!../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./special.less");
+		var newContent = require("../../04-webpack配置vue/dist/node_modules/node_modules/css-loader/dist/node_modules/less-loader/dist/cjs.js!./special.less");
 
 		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 
